@@ -29,10 +29,10 @@ class House:
         self.numbers_of_floors = self.numbers_of_floors + value
         return self
     def __iadd__(self, value):
-        self.numbers_of_floors = self.numbers_of_floors + value
+        self = self + value
         return self
     def __radd__(self, value):
-        self.numbers_of_floors = self.numbers_of_floors + value
+        self.numbers_of_floors = value + self.numbers_of_floors
         return self
 
 
@@ -41,11 +41,15 @@ h2 = House('ЖК Акация', 20)
 
 print(h1)
 print(h2)
-
+#print(isinstance(h1.numbers_of_floors, int))
+#print(isinstance(h2.numbers_of_floors, int))
 print(h1 == h2) # __eq__
+
 
 h1 = h1 + 10 # __add__
 print(h1)
+#print(isinstance(h1.numbers_of_floors, int))
+#print(isinstance(h2.numbers_of_floors, int))
 print(h1 == h2)
 
 h1 += 10 # __iadd__
